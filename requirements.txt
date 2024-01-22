@@ -1,0 +1,6 @@
+lumibot==2.9.13
+timedelta
+DateTime
+torch
+transformers
+alpaca-trade-api==3.1.1

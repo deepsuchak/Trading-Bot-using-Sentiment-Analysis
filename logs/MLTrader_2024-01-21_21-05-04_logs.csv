@@ -1,0 +1,55 @@
+2024-01-21 21:05:05,098: root: INFO: MLTrader : Executing the initialize lifecycle method
+2024-01-21 21:05:07,450: root: INFO: Current backtesting datetime 2020-01-02 08:30:00-05:00
+2024-01-21 21:05:07,455: root: INFO: MLTrader : Executing the before_market_opens lifecycle method
+2024-01-21 21:05:07,463: root: INFO: Current backtesting datetime 2020-01-02 09:30:00-05:00
+2024-01-21 21:05:07,464: root: INFO: MLTrader : Executing the before_starting_trading lifecycle method
+2024-01-21 21:05:07,470: root: INFO: [34mMLTrader : Executing the on_trading_iteration lifecycle method at 2024-01-21 21:05:07[0m
+2024-01-21 21:05:07,474: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-01-21 21:05:07,642: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-01-21 21:05:09,521: root: ERROR: 403 Client Error: Forbidden for url: https://data.alpaca.markets/v1beta1/news?start=2019-12-30&end=2020-01-02&limit=10&sort=desc&include_content=False&exclude_contentless=False&symbols=SPY
+2024-01-21 21:05:09,534: root: ERROR: Traceback (most recent call last):
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\strategies\strategy_executor.py", line 829, in run
+    self._run_trading_session()
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\strategies\strategy_executor.py", line 780, in _run_trading_session
+    self._on_trading_iteration()
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\strategies\strategy_executor.py", line 274, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\strategies\strategy_executor.py", line 298, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\strategies\strategy_executor.py", line 87, in func_output
+    return func_input(self, *args, **kwargs)
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\strategies\strategy_executor.py", line 378, in _on_trading_iteration
+    on_trading_iteration()
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\tools\decorators.py", line 62, in func_output
+    frame, result = call_function_get_frame(func_input, *args, **kwargs)
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\lumibot\tools\decorators.py", line 30, in call_function_get_frame
+    result = func(*args, **kwargs)
+  File "C:\Users\sucha\AI_trading_bot\tradingbot.py", line 50, in on_trading_iteration
+    probability, sentiment = self.get_sentiment()
+  File "C:\Users\sucha\AI_trading_bot\tradingbot.py", line 41, in get_sentiment
+    news = self.api.get_news(symbol=self.symbol,
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 988, in get_news
+    news = list(self.get_news_iter(symbol=symbol,
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 972, in get_news_iter
+    for n in news:
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 594, in _data_get
+    resp = self.data_get(path, data=data, feed=feed,
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 274, in data_get
+    return self._request(
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 222, in _request
+    return self._one_request(method, url, opts, retry)
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 248, in _one_request
+    raise_api_error(resp, http_error)
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 81, in raise_api_error
+    raise http_error from None
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\alpaca_trade_api\rest.py", line 243, in _one_request
+    resp.raise_for_status()
+  File "C:\Users\sucha\anaconda3\envs\trading-bot\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://data.alpaca.markets/v1beta1/news?start=2019-12-30&end=2020-01-02&limit=10&sort=desc&include_content=False&exclude_contentless=False&symbols=SPY
+
+2024-01-21 21:05:09,545: root: INFO: MLTrader : Executing the on_bot_crash event method
+2024-01-21 21:05:09,594: root: INFO: Backtesting finished
+2024-01-21 21:05:09,603: root: WARNING: Cannot plot returns because the strategy returns are missing
+2024-01-21 21:05:10,038: root: WARNING: Cannot create a tearsheet because the strategy returns are missing
+2024-01-21 21:05:10,039: backtest_stats: INFO: Backtest took 0:00:04.944095 for a speed of 0.000
